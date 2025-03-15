@@ -5,15 +5,7 @@ import Gallery from './components/gallery/Gallery'
 import LeftBar from './components/leftBar/LeftBar'
 
 const App: React.FC = () => {
-  return (
-    <div className="app">
-      <LeftBar />
-      <div className="content">
-        <TopBar />
-        <Gallery />
-      </div>
-    </div>
-  )
+  return <div className="app"></div>
 }
 
 export default App

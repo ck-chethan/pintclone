@@ -1,9 +1,9 @@
 import React from 'react'
-import './homePage.css'
+import './searchPage.css'
 import Gallery from '../../components/gallery/Gallery'
 
-const HomePage: React.FC = () => {
+const SearchPage: React.FC = () => {
   return <Gallery />
 }
 
-export default HomePage
+export default SearchPage
