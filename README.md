@@ -1,3 +1,3 @@
-**Pinterest Clone**\n
-Full Stack Development
+**Pinterest Clone**
+Pinterest Full Stack Development
 client -> Forntend
