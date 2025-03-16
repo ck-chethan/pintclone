@@ -1,13 +1,13 @@
-import React from 'react'
-import './topBar.css'
 import UserButton from '../userButton/UserButton'
+import Image from '../image/Image'
+import './topBar.css'
 
 const TopBar: React.FC = () => {
   return (
     <div className="topBar">
       {/* Search */}
       <div className="search">
-        <img src="/general/search.svg" alt="" />
+        <Image alt="TopBar" className="" path={'/general/search.svg'} />
         <input type="text" placeholder="Search" />
       </div>
       <UserButton />

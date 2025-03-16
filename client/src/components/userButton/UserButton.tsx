@@ -1,16 +1,17 @@
 import React, { useState } from 'react'
 import './userButton.css'
+import Image from '../image/Image'
 const UserButton: React.FC = () => {
   const [enableUserOptions, setEnableUserOptions] = useState(false)
   const currentUser = true
   return currentUser ? (
     <div className="userButton">
-      <img src="/general/noAvatar.png" alt="" />
-      <img
+      <Image path="/general/noAvatar.png" alt="" />
+      <Image
         className="arrow"
-        src="/general/arrow.svg"
-        alt=""
-        onClick={() => setEnableUserOptions((prev) => !prev)}
+        path="/general/arrow.svg"
+        alt="arrow"
+        onClickHandler={() => setEnableUserOptions((prev) => !prev)}
       />
       {enableUserOptions && (
         <div className="userOptions">
