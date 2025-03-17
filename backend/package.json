@@ -1,0 +1,27 @@
+{
+  "type": "module",
+  "name": "pintclone-backend",
+  "version": "1.0.0",
+  "description": "Backend for Pintclone",
+  "main": "index.ts",
+  "scripts": {
+    "dev": "tsx --watch --env-file=.env src/index.ts",
+    "seed": "tsx --env-file=.env src/utils/seed.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.13.10",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "express": "^5.0.1",
+    "mongoose": "^8.12.1"
+  }
+}
