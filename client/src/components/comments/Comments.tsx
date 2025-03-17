@@ -1,10 +1,9 @@
-import { useState } from 'react'
-import EmojiPicker from 'emoji-picker-react'
 import apiRequest from '../../utils/apiRequest'
 import { useQuery } from '@tanstack/react-query'
 import { CommentType } from '../../utils/interface'
 import Comment from './Comment'
 import './comments.css'
+import CommentForm from './CommentForm'
 
 const fetchComments = async (pin: string) => {
   const response = await apiRequest.get(`/comments/${pin}`)
@@ -16,7 +15,6 @@ interface CommentsProps {
 }
 
 const Comments: React.FC<CommentsProps> = ({ pinId }) => {
-  const [enableEmojiPicker, setEnableEmojiPicker] = useState<boolean>(false)
   const { isLoading, isError, error, data } = useQuery({
     queryKey: ['comments', pinId],
     queryFn: () => fetchComments(pinId),
@@ -37,17 +35,7 @@ const Comments: React.FC<CommentsProps> = ({ pinId }) => {
           <Comment comment={comment} key={comment._id} />
         ))}
       </div>
-      <form className="commentForm" action="">
-        <input type="text" placeholder="Add a comment" />
-        <div className="emoji">
-          <div onClick={() => setEnableEmojiPicker((prev) => !prev)}>😀</div>
-          {enableEmojiPicker && (
-            <div className="emojiPicker">
-              <EmojiPicker />
-            </div>
-          )}
-        </div>
-      </form>
+      <CommentForm pinId={pinId} />
     </div>
   )
 }
