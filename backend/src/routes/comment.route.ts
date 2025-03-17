@@ -1,7 +1,7 @@
 import express from 'express'
-import { getComments } from '../controllers/comment.controller.ts'
+import { getPinComments } from '../controllers/comment.controller.ts'
 
 const router = express.Router()
-router.get('/', getComments)
+router.get('/:pinId', getPinComments)
 
 export default router

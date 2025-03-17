@@ -5,6 +5,7 @@ export const getPins = async (req: Request, res: Response) => {
   const pageNumber = Number(req.query.cursor) || 0
   const search = req.query.search || ''
   const userId = req.query.userId || ''
+  const boardId = req.query.boardId || ''
 
   const limit = Number(req.query.limit) || 21
   const pins = await Pin.find(
@@ -19,6 +20,8 @@ export const getPins = async (req: Request, res: Response) => {
       ? {
           user: userId,
         }
+      : boardId
+      ? { board: boardId }
       : {}
   )
     .limit(limit)
