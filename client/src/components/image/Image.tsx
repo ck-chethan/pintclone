@@ -1,7 +1,8 @@
 import { IKImage } from 'imagekitio-react'
 
 interface ImageProps {
-  path: string
+  path?: string
+  src?: string
   alt?: string
   className?: string
   w?: string
@@ -9,12 +10,21 @@ interface ImageProps {
   onClickHandler?: () => void
 }
 
-const Image = ({ path, alt, className, w, h, onClickHandler }: ImageProps) => {
+const Image = ({
+  path,
+  src,
+  alt,
+  className,
+  w,
+  h,
+  onClickHandler,
+}: ImageProps) => {
   return (
     <IKImage
       className={className}
       urlEndpoint={import.meta.env.VITE_URL_IK_ENDPOINT}
       path={path}
+      src={src}
       transformation={[
         {
           width: w,

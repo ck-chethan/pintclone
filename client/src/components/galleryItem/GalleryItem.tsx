@@ -18,11 +18,11 @@ const GalleryItem: React.FC<GalleryItemProps> = ({ item }) => {
         alt="Image"
         className=""
         h={optimixedHeight.toString()}
-        path={item.media}
+        src={item.media}
         w="372"
-        key={item.id}
+        key={item._id}
       />
-      <Link to={`/pin/${item.id}`} className="overlay" />
+      <Link to={`/pin/${item._id}`} className="overlay" />
       <button className="saveButton">Save</button>
       <div className="overlayButtons">
         <button>
