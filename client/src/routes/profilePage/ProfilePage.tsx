@@ -7,6 +7,7 @@ import apiRequest from '../../utils/apiRequest'
 import { useQuery } from '@tanstack/react-query'
 import { useParams } from 'react-router'
 import Boards from '../../components/boards/Boards'
+import FollowButton from './FollowButton'
 
 const fetchUser = async (username: string) => {
   const response = await apiRequest(`/users/${username}`)
@@ -35,14 +36,19 @@ const ProfilePage: React.FC = () => {
         w="100"
         h="100"
       />
-      <h1 className="profileName">{data.displayName}</h1>
-      <span className="profileUsername">@{data.username}</span>
-      <div className="followCount">10 followers - 20 followings</div>
+      <h1 className="profileName">{data.user.displayName}</h1>
+      <span className="profileUsername">@{data.user.username}</span>
+      <div className="followCount">
+        {data.followerCount} followers - {data.followingCount} followings
+      </div>
       <div className="profileInteractions">
         <Image path="general/share.svg" alt="Share" />
         <div className="profileButtons">
           <button>Message</button>
-          <button>Follow</button>
+          <FollowButton
+            isFollowing={data.isFollowing}
+            username={data.user.username}
+          />
         </div>
         <Image path="general/more.svg" alt="More" />
       </div>
@@ -65,9 +71,9 @@ const ProfilePage: React.FC = () => {
         </span>
       </div>
       {profileOptionSelected === ProfileOption.CREATED ? (
-        <Gallery userId={data._id} />
+        <Gallery userId={data.user._id} />
       ) : (
-        <Boards userId={data._id} />
+        <Boards userId={data.user._id} />
       )}
     </div>
   )
